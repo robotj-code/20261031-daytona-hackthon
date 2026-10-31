@@ -1,0 +1,23 @@
+{
+  "nodes": [
+    {"id": "entity_001", "name": "Apex Auto Group", "type": "PortfolioCompany"},
+    {"id": "entity_002", "name": "Titan Battery Systems", "type": "Tier1Supplier"},
+    {"id": "entity_003", "name": "Lithium Dynamic Core", "type": "Tier2Supplier"},
+    {"id": "entity_004", "name": "Valence Microchips", "type": "Tier1Supplier"},
+    {"id": "entity_005", "name": "Global Freight Logistics", "type": "LogisticsPartner"},
+    {"id": "entity_006", "name": "Red Sea Shipping Route", "type": "GeopoliticalZone"},
+    {"id": "entity_007", "name": "Sovereign Risk Index", "type": "MacroMetric"},
+    {"id": "entity_008", "name": "Quantum Robotics Corp", "type": "PortfolioCompany"}
+  ],
+  "relationships": [
+    {"source": "entity_001", "target": "entity_002", "type": "DEPENDS_ON"},
+    {"source": "entity_001", "target": "entity_004", "type": "DEPENDS_ON"},
+    {"source": "entity_002", "target": "entity_003", "type": "SUPPLIED_BY"},
+    {"source": "entity_002", "target": "entity_005", "type": "SHIPS_VIA"},
+    {"source": "entity_004", "target": "entity_005", "type": "SHIPS_VIA"},
+    {"source": "entity_005", "target": "entity_006", "type": "OPERATES_IN"},
+    {"source": "entity_006", "target": "entity_007", "type": "IMPACTED_BY"},
+    {"source": "entity_008", "target": "entity_004", "type": "DEPENDS_ON"},
+    {"source": "entity_008", "target": "entity_005", "type": "SHIPS_VIA"}
+  ]
+}
