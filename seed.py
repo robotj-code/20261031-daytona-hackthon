@@ -10,7 +10,7 @@ NEO4J_USER = config.get('neo4j', 'username')
 NEO4J_PASSWORD = config.get('neo4j', 'password')
 NEO4J_DB = config.get('neo4j', 'database')
 
-# Comprehensive multi-tier supply chain portfolio dataset
+# Comprehensive multi-tier supply chain portfolio dataset for Case 1 & Case 2 demo
 portfolio_data = {
   "nodes": [
     {"id": "entity_001", "name": "Apex Auto Group", "type": "PortfolioCompany"},
@@ -37,10 +37,10 @@ portfolio_data = {
 
 def seed_database():
     driver = GraphDatabase.driver(NEO4J_URI, auth=(NEO4J_USER, NEO4J_PASSWORD))
-    print("🌱 Seeding Neo4j database with expanded multi-tier supply chain data...")
+    print("🌱 Seeding Neo4j database with multi-tier portfolio risk graph...")
     
     with driver.session(database=NEO4J_DB) as session:
-        # Clear existing graph data to start clean
+        # Clear existing graph data to start fresh
         session.run("MATCH (n) DETACH DELETE n")
         
         # Create Nodes
@@ -50,7 +50,7 @@ def seed_database():
                 id=node["id"], name=node["name"], type=node["type"]
             )
         
-        # Create Dynamic Relationships safely
+        # Create Relationships
         for rel in portfolio_data["relationships"]:
             query = f"""
             MATCH (a:Entity {{id: $source}}), (b:Entity {{id: $target}})
@@ -58,7 +58,7 @@ def seed_database():
             """
             session.run(query, source=rel["source"], target=rel["target"])
             
-    print("✅ Seeding complete! Added 8 nodes and 9 relationships.")
+    print("✅ Seeding complete! Added 8 nodes and 9 multi-tier relationships.")
     driver.close()
 
 if __name__ == "__main__":
