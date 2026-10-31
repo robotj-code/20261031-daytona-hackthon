@@ -155,3 +155,29 @@ python main.py
           │
           ▼
 [ Daytona Secure Sandbox ] ──────────────> Provisions isolated container to execute Monte Carlo VaR stress test
+
+
+---
+
+## 🖥️ Live Interactive MVP Demo
+
+The repository includes a single-file interactive visual web application (`index.html`) designed to demonstrate the real-time contrast between traditional risk dashboards and **AlphaSentinel**.
+
+### Features Included:
+* **Scenario Switcher**:
+  * **Case 1 (Explicit Risk)**: Direct news hits matching portfolio tickers (e.g., regulatory fines/recalls).
+  * **Case 2 (Hidden Multi-Tier Risk)**: Obscure factory disruptions at Tier-2 suppliers that bypass traditional ticker-matching systems.
+* **Live Neo4j Graph Visualizer**: Interactive network rendering (powered by Vis.js) showing multi-hop risk paths from damaged Tier-2 suppliers up to portfolio holdings.
+* **Nosana & Daytona Terminal Logs**: Real-time simulated execution showing Llama-3 entity extraction and sub-200ms container sandboxing for Monte Carlo VaR models.
+
+### How to View the Demo:
+Simply open `index.html` in any modern web browser:
+```bash
+# macOS
+open index.html
+
+# Linux
+xdg-open index.html
+
+# Windows
+start index.html
