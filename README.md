@@ -155,6 +155,7 @@ python main.py
           │
           ▼
 [ Daytona Secure Sandbox ] ──────────────> Provisions isolated container to execute Monte Carlo VaR stress test
+```
 
 
 ---
